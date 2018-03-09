@@ -44,17 +44,11 @@ for (var i = 0; i < humanCount; i++) {
 
 //#5
 function getIn(obj, path, def) {
-  try {
-    return path.split('.').reduce(function(way, i)
-      //тут сплит работает для адреса в формате x.x...
-      {
-        if ((way && typeof way) == 'object') return way[i]
-        else return def
-      }, obj)
-  } catch(e)// на часах 3:51, хз как допилить, я спать
-   {
-return
-}
+
+  return path.reduce(function(left, rigth) {
+    if (left[rigth] !== undefined) return left[rigth]
+    else return def
+  }, obj)
 }
 
 var a = {
@@ -65,5 +59,4 @@ var a = {
     book: 'VIM'
   }
 }
-console.log(getIn(a, 'books.author', 'wtf'))
-console.log(getIn(a, ['books', 'author'], 'wtf')) // как wtf нормально вывести?
+console.log(getIn(a, ['books', 'auhor'], 'wtf')) // как wtf нормально вывести?
