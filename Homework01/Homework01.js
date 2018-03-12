@@ -2,12 +2,13 @@ const ajax = (url)=> {
   var xhr = new XMLHttpRequest()
   xhr.open("GET", url, false)
   xhr.send()
-    if (xhr.readyState != 4) return
-    if (xhr.status != 200) {
-      return `${xhr.status} : ${xhr.statusText}`
-    } else {
-      return xhr.responseText
-    }
+    if (xhr.readyState == 4) {
+      if (xhr.status != 200) {
+        return `${xhr.status} : ${xhr.statusText}`
+      } else {
+        return xhr.responseText
+      }
+  }
 
 }
 // 'use strict';
