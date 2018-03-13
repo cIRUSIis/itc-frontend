@@ -83,7 +83,7 @@ console.log("Зад. 2 = " + mult(1, 5, 6))
 
 //#3
 var objectToQueryString = obj => {
-  let link = "http://домен/страница?"
+  let link = ""
   for (var key in obj) {
     link += encodeURIComponent(key) + "=" + encodeURIComponent(obj[key]) + "&"
   }
