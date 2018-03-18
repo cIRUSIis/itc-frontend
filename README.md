@@ -1,2 +1,2 @@
 # itc-frontend
-Задания для frontend'a
+Задания для frontend'а
