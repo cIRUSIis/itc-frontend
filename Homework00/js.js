@@ -23,22 +23,14 @@ console.log("Б.З. 3 = " + mergeArrays([1, 2, 3], [4, 5]))
 
 //Б.З. №4
 function filterFemales(people) {
-  for (var i = 0; i < humanCount; i++) {
+  for (var i = 0; i < 2; i++) {
     if (people[i].sex == "F") {
       console.log(people[i].name + " любит " + people[i].film)
     }
   }
 }
 
-let humanCount = prompt("Введи кол-во людей", "")
-let people = [] // Надо
-for (var i = 0; i < humanCount; i++) {
-  people[i] = {
-    name: prompt("Введи имя", ""),
-    sex: prompt("Введи пол (M/F)", ""),
-    film: prompt("Введи любимый фильм", "")
-  }
-}
+let people = [{name: "Ivan", sex: "M", film: "Star Wars"}, {name: "Olya", sex: "F", film: "Dom 2"}] 
 filterFemales(people)
 
 //Б.З. №5
@@ -99,30 +91,27 @@ console.log(
 )
 
 //#4
-humanCount = prompt("Введи кол-во людей", "")
-for (var i = 0; i < humanCount; i++) {
-  people[i] = {
-    name: prompt("Введи имя", ""),
-    sex: prompt("Введи пол (M/F)", ""),
-    film: prompt("Введи любимый фильм", "")
-  }
-}
-let femaleHuman = people.filter(human => (human.sex = "F"))
-for (var i = 0; i < humanCount; i++) {
+let femaleHuman = people.filter(human => (human.sex == "F"))
+for (var i = 0; i < femaleHuman.length; i++) {
   console.log(
     "Зад. 4." + i + " = " + femaleHuman[i].name + " любит " + people[i].film
   )
 }
 
 //#5
-function getIn(obj, path, def) {
-  return path.reduce(function(left, rigth) {
-    if (left[rigth] !== undefined) return left[rigth]
-    else return def
+const getIn = (obj, path, def) => {
+  let value = path.reduce((left, rigth) => {
+   return left[rigth]
   }, obj)
+  if (value !== undefined) {
+    return value
+  } else {
+    return def
+  }
 }
 
-var a = {
+
+var test = {
   name: "ivan",
   sex: "male",
   books: {
@@ -130,4 +119,4 @@ var a = {
     book: "VIM"
   }
 }
-console.log(getIn(a, ["books", "auhor"], "wtf"))
+console.log(getIn(test, ['books', 'author'], 'wtf'))
