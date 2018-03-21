@@ -1,0 +1,26 @@
+@font-face {
+ font-family: Agency;
+ src: url("fonts/8711.ttf");
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+}
+div {
+  display: flex;
+  width: auto;
+  padding: 5%;
+  font-family: Agency;
+}
+img {
+  width: 140px;
+  height: 140px;
+  padding-right: 5%;
+}
+a {
+text-decoration: none;
+color: black;
+}
